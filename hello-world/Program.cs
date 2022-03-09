@@ -33,13 +33,6 @@ namespace hello_world
                 };
                 process.StartInfo = processStartInfo;
                 process.Start();
-                process.WaitForExit();
-
-                string error = process.StandardError.ReadToEnd();
-                string output = process.StandardOutput.ReadToEnd();
-
-                Console.WriteLine("ERROR:", error);
-                Console.WriteLine("OUTPUT:", output);
             }
             catch (Exception ex)
             {
