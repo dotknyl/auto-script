@@ -32,7 +32,7 @@ namespace hello_world.Controllers
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
-                    Arguments = $"-c \"ps -aux; ls -l\"",
+                    Arguments = $"-c \"ps -aux; curl --version\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
