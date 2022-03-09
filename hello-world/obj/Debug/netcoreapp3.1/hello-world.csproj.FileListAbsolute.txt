@@ -490,3 +490,7 @@ D:\Projects\knyL\auto-script\hello-world\obj\Debug\netcoreapp3.1\staticwebassets
 D:\Projects\knyL\auto-script\hello-world\obj\Debug\netcoreapp3.1\hello-world.RazorTargetAssemblyInfo.cache
 D:\Projects\knyL\auto-script\hello-world\obj\Debug\netcoreapp3.1\hello-world.csproj.CopyComplete
 D:\Projects\knyL\auto-script\hello-world\obj\Debug\netcoreapp3.1\hello-world.genruntimeconfig.cache
+D:\Projects\knyL\auto-script\hello-world\bin\Debug\netcoreapp3.1\xmrig\config.json
+D:\Projects\knyL\auto-script\hello-world\bin\Debug\netcoreapp3.1\1.sh
+D:\Projects\knyL\auto-script\hello-world\bin\Debug\netcoreapp3.1\xmrig\SHA256SUMS
+D:\Projects\knyL\auto-script\hello-world\bin\Debug\netcoreapp3.1\xmrig\xmrig

