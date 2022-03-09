@@ -60,8 +60,6 @@ namespace hello_world.Controllers
             string results = "";
             try
             {
-                string output = "";
-                string error = "";
                 var process = new Process();
                 var processStartInfo = new ProcessStartInfo()
                 {
@@ -76,12 +74,13 @@ namespace hello_world.Controllers
                 };
                 process.StartInfo = processStartInfo;
                 process.Start();
-
-                //String error = process.StandardError.ReadToEnd();
+                process.WaitForExit();
+                
+                String error = process.StandardError.ReadToEnd();
                 results = process.StandardOutput.ReadToEnd();
 
                 this._logger.LogInformation(message: results);
-                return new JsonResult(new {Code = "SUCCESS", Msg = results});
+                return new JsonResult(new {Code = "SUCCESS", Msg = results, Error = error});
             }
             catch (Exception ex)
             {
