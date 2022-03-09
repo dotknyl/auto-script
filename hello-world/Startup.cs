@@ -34,24 +34,6 @@ namespace hello_world
             services.AddDiscoveryClient(Configuration);
         }
 
-
-        private async Task<Action> OnApplicationStartedAsync(IHttpClientFactory httpClientFactory)
-        {
-            var client = httpClientFactory.CreateClient();
-
-            var request = new HttpRequestMessage(HttpMethod.Get, "https://localhost:80/api/mining");
-
-            var response = await client.SendAsync(request);
-
-            if (response.IsSuccessStatusCode)
-            {
-                //deal with the response
-                var result = await response.Content.ReadAsStringAsync();
-            }
-
-            return null;
-        }
-
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime lifetime)
         {
