@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Management.Automation;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,7 +9,7 @@ using Microsoft.Extensions.Logging;
 namespace hello_world.Controllers
 {
     [ApiController]
-    [Route("script")]
+    [Route("ls")]
     public class ScriptController : ControllerBase
     {
         private readonly ILogger<ScriptController> _logger;
@@ -25,19 +24,23 @@ namespace hello_world.Controllers
         {
             try
             {
-               string results = "";
-                using (PowerShell ps = PowerShell.Create())
+                string results = "";
+                var process = new Process();
+                var processStartInfo = new ProcessStartInfo()
                 {
-                    var cmds = System.IO.File.ReadAllLines("script.txt");
-                    foreach (var cmd in cmds)
-                        ps.AddScript(cmd);
+                    WindowStyle = ProcessWindowStyle.Hidden,
+                    FileName = $"/bin/bash",
+                    WorkingDirectory = AppContext.BaseDirectory,
+                    Arguments = $"-c \"ps -aux\"",
+                    RedirectStandardOutput = true,
+                    RedirectStandardError = true,
+                    UseShellExecute = false
+                };
+                process.StartInfo = processStartInfo;
+                process.Start();
 
-                    var pipelineObjects = await ps.InvokeAsync().ConfigureAwait(false);
-                    foreach (var item in pipelineObjects)
-                    {
-                        results += item.BaseObject.ToString() + Environment.NewLine;
-                    }
-                }
+                //String error = process.StandardError.ReadToEnd();
+                results = process.StandardOutput.ReadToEnd();
 
                 return new JsonResult(new {Code = "SUCCESS", Msg = results});
             }
