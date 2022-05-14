@@ -1,14 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.Azure.SpringCloud.Client;
+using Microsoft.Extensions.Hosting;
 
 namespace hello_world
 {
@@ -17,7 +9,7 @@ namespace hello_world
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            
+
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

@@ -1,19 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 	<PropertyGroup>
-		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<TargetFramework>net6.0</TargetFramework>
 		<RootNamespace>hello_world_1</RootNamespace>
 	</PropertyGroup>
-
 	<ItemGroup>
-		<PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.1.0" />
+		<PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.1.3" />
 		<PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
 	</ItemGroup>
 	<Target Name="Publish-Zip" AfterTargets="Publish">
 		<ZipDirectory SourceDirectory="$(PublishDir)" DestinationFile="$(MSBuildProjectDirectory)/deploy.zip" Overwrite="true" />
 	</Target>
-	<ItemGroup>
-		<None Include="1.sh" CopyToOutputDirectory="Always" />
-		<None Include="1.sh" CopyToPublishDirectory="Always" />
-	</ItemGroup>
 </Project>

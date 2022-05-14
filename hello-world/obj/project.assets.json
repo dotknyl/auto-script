@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net6.0": {
       "Microsoft.AspNetCore.Hosting.Abstractions/2.2.0": {
         "type": "package",
         "dependencies": {
@@ -94,28 +94,28 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Abstractions/3.1.8": {
+      "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Primitives": "3.1.8"
+          "Microsoft.Extensions.Primitives": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Configuration.Binder/3.1.0": {
+      "Microsoft.Extensions.Configuration.Binder/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration": "3.1.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll": {}
         }
       },
       "Microsoft.Extensions.Configuration.CommandLine/3.1.0": {
@@ -195,13 +195,16 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.DependencyInjection.dll": {}
         }
       },
-      "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.0": {
+      "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+          "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "Microsoft.Extensions.FileProviders.Abstractions/3.1.8": {
@@ -378,41 +381,48 @@
           "lib/netcoreapp3.1/Microsoft.Extensions.Logging.EventSource.dll": {}
         }
       },
-      "Microsoft.Extensions.Options/3.1.0": {
+      "Microsoft.Extensions.Options/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.0",
-          "Microsoft.Extensions.Primitives": "3.1.0"
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll": {}
+          "lib/netstandard2.1/Microsoft.Extensions.Options.dll": {}
         }
       },
-      "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.0": {
+      "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Configuration.Abstractions": "3.1.0",
-          "Microsoft.Extensions.Configuration.Binder": "3.1.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "3.1.0",
-          "Microsoft.Extensions.Options": "3.1.0"
+          "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Configuration.Binder": "6.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "6.0.0",
+          "Microsoft.Extensions.Options": "6.0.0",
+          "Microsoft.Extensions.Primitives": "6.0.0"
         },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
+          "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll": {}
         }
       },
-      "Microsoft.Extensions.Primitives/3.1.8": {
+      "Microsoft.Extensions.Primitives/6.0.0": {
         "type": "package",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        },
         "compile": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll": {}
+          "lib/net6.0/Microsoft.Extensions.Primitives.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {
@@ -447,7 +457,7 @@
           }
         }
       },
-      "Steeltoe.Common/3.1.0": {
+      "Steeltoe.Common/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "3.1.0",
@@ -455,7 +465,7 @@
           "Microsoft.Extensions.DependencyInjection": "3.1.0",
           "Microsoft.Extensions.Logging.Abstractions": "3.1.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0",
-          "Steeltoe.Common.Abstractions": "3.1.0",
+          "Steeltoe.Common.Abstractions": "3.1.3",
           "System.Diagnostics.DiagnosticSource": "5.0.1",
           "System.Reflection.MetadataLoadContext": "4.6.0",
           "System.Text.Json": "4.6.0"
@@ -467,7 +477,7 @@
           "lib/netstandard2.0/Steeltoe.Common.dll": {}
         }
       },
-      "Steeltoe.Common.Abstractions/3.1.0": {
+      "Steeltoe.Common.Abstractions/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "3.1.0"
@@ -479,12 +489,12 @@
           "lib/netstandard2.0/Steeltoe.Common.Abstractions.dll": {}
         }
       },
-      "Steeltoe.Common.Http/3.1.0": {
+      "Steeltoe.Common.Http/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Http": "2.1.0",
-          "Steeltoe.Common": "3.1.0",
-          "Steeltoe.Discovery.Abstractions": "3.1.0",
+          "Steeltoe.Common": "3.1.3",
+          "Steeltoe.Discovery.Abstractions": "3.1.3",
           "System.Text.Json": "4.6.0"
         },
         "compile": {
@@ -511,12 +521,12 @@
           "lib/netstandard2.1/Steeltoe.Common.Security.dll": {}
         }
       },
-      "Steeltoe.Connector.Abstractions/3.1.0": {
+      "Steeltoe.Connector.Abstractions/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.0",
-          "Steeltoe.Common.Abstractions": "3.1.0",
-          "Steeltoe.Extensions.Configuration.Abstractions": "3.1.0"
+          "Steeltoe.Common.Abstractions": "3.1.3",
+          "Steeltoe.Extensions.Configuration.Abstractions": "3.1.3"
         },
         "compile": {
           "lib/netstandard2.0/Steeltoe.Connector.Abstractions.dll": {}
@@ -525,13 +535,13 @@
           "lib/netstandard2.0/Steeltoe.Connector.Abstractions.dll": {}
         }
       },
-      "Steeltoe.Connector.ConnectorBase/3.1.0": {
+      "Steeltoe.Connector.ConnectorBase/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Binder": "3.1.0",
           "Microsoft.Extensions.Options": "3.1.0",
-          "Steeltoe.Common": "3.1.0",
-          "Steeltoe.Connector.Abstractions": "3.1.0"
+          "Steeltoe.Common": "3.1.3",
+          "Steeltoe.Connector.Abstractions": "3.1.3"
         },
         "compile": {
           "lib/netstandard2.0/Steeltoe.Connector.ConnectorBase.dll": {}
@@ -540,11 +550,11 @@
           "lib/netstandard2.0/Steeltoe.Connector.ConnectorBase.dll": {}
         }
       },
-      "Steeltoe.Discovery.Abstractions/3.1.0": {
+      "Steeltoe.Discovery.Abstractions/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "3.1.0",
-          "Steeltoe.Common.Abstractions": "3.1.0"
+          "Steeltoe.Common.Abstractions": "3.1.3"
         },
         "compile": {
           "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.dll": {}
@@ -553,14 +563,14 @@
           "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.dll": {}
         }
       },
-      "Steeltoe.Discovery.ClientBase/3.1.0": {
+      "Steeltoe.Discovery.ClientBase/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Hosting": "3.1.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0",
-          "Steeltoe.Common.Http": "3.1.0",
-          "Steeltoe.Connector.ConnectorBase": "3.1.0",
-          "Steeltoe.Discovery.Abstractions": "3.1.0"
+          "Steeltoe.Common.Http": "3.1.3",
+          "Steeltoe.Connector.ConnectorBase": "3.1.3",
+          "Steeltoe.Discovery.Abstractions": "3.1.3"
         },
         "compile": {
           "lib/netstandard2.0/Steeltoe.Discovery.ClientBase.dll": {}
@@ -569,29 +579,29 @@
           "lib/netstandard2.0/Steeltoe.Discovery.ClientBase.dll": {}
         }
       },
-      "Steeltoe.Discovery.ClientCore/3.1.0": {
+      "Steeltoe.Discovery.ClientCore/3.1.3": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "3.1.0",
-          "Steeltoe.Discovery.ClientBase": "3.1.0"
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "6.0.0",
+          "Steeltoe.Discovery.ClientBase": "3.1.3"
         },
         "compile": {
-          "lib/netcoreapp3.1/Steeltoe.Discovery.ClientCore.dll": {}
+          "lib/net6.0/Steeltoe.Discovery.ClientCore.dll": {}
         },
         "runtime": {
-          "lib/netcoreapp3.1/Steeltoe.Discovery.ClientCore.dll": {}
+          "lib/net6.0/Steeltoe.Discovery.ClientCore.dll": {}
         },
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
       },
-      "Steeltoe.Extensions.Configuration.Abstractions/3.1.0": {
+      "Steeltoe.Extensions.Configuration.Abstractions/3.1.3": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration": "3.1.0",
           "Microsoft.Extensions.Configuration.Binder": "3.1.0",
           "Microsoft.Extensions.DependencyInjection": "3.1.0",
-          "Steeltoe.Common.Abstractions": "3.1.0"
+          "Steeltoe.Common.Abstractions": "3.1.3"
         },
         "compile": {
           "lib/netstandard2.0/Steeltoe.Extensions.Configuration.Abstractions.dll": {}
@@ -603,10 +613,10 @@
       "System.Diagnostics.DiagnosticSource/5.0.1": {
         "type": "package",
         "compile": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
         },
         "runtime": {
-          "lib/netstandard1.3/System.Diagnostics.DiagnosticSource.dll": {}
+          "lib/net5.0/System.Diagnostics.DiagnosticSource.dll": {}
         }
       },
       "System.Diagnostics.EventLog/4.7.0": {
@@ -636,6 +646,18 @@
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Reflection.MetadataLoadContext.dll": {}
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {}
+        },
+        "build": {
+          "buildTransitive/netcoreapp3.1/_._": {}
         }
       },
       "System.Security.AccessControl/4.7.0": {
@@ -796,36 +818,42 @@
         "microsoft.extensions.configuration.nuspec"
       ]
     },
-    "Microsoft.Extensions.Configuration.Abstractions/3.1.8": {
-      "sha512": "0qbNyxGpuNP/fuQ3FLHesm1Vn/83qYcAgVsi1UQCQN1peY4YH1uiizOh4xbYkQyxiVMD/c/zhiYYv94G0DXSSA==",
+    "Microsoft.Extensions.Configuration.Abstractions/6.0.0": {
+      "sha512": "qWzV9o+ZRWq+pGm+1dF+R7qTgTYoXvbyowRoBxQJGfqTpqDun2eteerjRQhq5PQ/14S+lqto3Ft4gYaRyl4rdQ==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.abstractions/3.1.8",
+      "path": "microsoft.extensions.configuration.abstractions/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Abstractions.xml",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Abstractions.xml",
-        "microsoft.extensions.configuration.abstractions.3.1.8.nupkg.sha512",
-        "microsoft.extensions.configuration.abstractions.nuspec"
+        "microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.configuration.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.Extensions.Configuration.Binder/3.1.0": {
-      "sha512": "o9eELDBfNkR7sUtYysFZ1Q7BQ1mYt27DMkups/3vu7xgPyOpMD+iAfrBZFzUXT2iw0fmFb8s1gfNBZS+IgjKdQ==",
+    "Microsoft.Extensions.Configuration.Binder/6.0.0": {
+      "sha512": "b3ErKzND8LIC7o08QAVlKfaEIYEvLJbtmVbFZVBRXeu9YkKfSSzLZfR1SUfQPBIy9mKLhEtJgGYImkcMNaKE0A==",
       "type": "package",
-      "path": "microsoft.extensions.configuration.binder/3.1.0",
+      "path": "microsoft.extensions.configuration.binder/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Configuration.Binder.xml",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.dll",
+        "lib/net461/Microsoft.Extensions.Configuration.Binder.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Configuration.Binder.xml",
-        "microsoft.extensions.configuration.binder.3.1.0.nupkg.sha512",
+        "microsoft.extensions.configuration.binder.6.0.0.nupkg.sha512",
         "microsoft.extensions.configuration.binder.nuspec",
-        "packageIcon.png"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.Configuration.CommandLine/3.1.0": {
@@ -930,18 +958,29 @@
         "packageIcon.png"
       ]
     },
-    "Microsoft.Extensions.DependencyInjection.Abstractions/3.1.0": {
-      "sha512": "44rDtOf1JXXAFpNT2EXMExaDm/4OJ2RXOL9i9lE4bK427nzC7Exphv+beB6IgluyE2GIoo8zezTStMXI7MQ8WA==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/6.0.0": {
+      "sha512": "xlzi2IYREJH3/m6+lUrQlujzX8wDitm4QGnUu6kUXTQAWPuZY8i+ticFJbzfqaetLA6KR/rO6Ew/HuYD+bxifg==",
       "type": "package",
-      "path": "microsoft.extensions.dependencyinjection.abstractions/3.1.0",
+      "path": "microsoft.extensions.dependencyinjection.abstractions/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net461/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
         "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
-        "microsoft.extensions.dependencyinjection.abstractions.3.1.0.nupkg.sha512",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.6.0.0.nupkg.sha512",
         "microsoft.extensions.dependencyinjection.abstractions.nuspec",
-        "packageIcon.png"
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.Extensions.FileProviders.Abstractions/3.1.8": {
@@ -1149,52 +1188,69 @@
         "packageIcon.png"
       ]
     },
-    "Microsoft.Extensions.Options/3.1.0": {
-      "sha512": "9b6JHY7TAXrSfZ6EEGf+j8XnqKIiMPErfmaNXhJYSCb+BUW2H4RtzkNJvwLJzwgzqBP0wtTjyA6Uw4BPPdmkMw==",
+    "Microsoft.Extensions.Options/6.0.0": {
+      "sha512": "dzXN0+V1AyjOe2xcJ86Qbo233KHuLEY0njf/P2Kw8SfJU+d45HNS2ctJdnEnrWbM9Ye2eFgaC5Mj9otRMU6IsQ==",
       "type": "package",
-      "path": "microsoft.extensions.options/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Options.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Options.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
-        "microsoft.extensions.options.3.1.0.nupkg.sha512",
-        "microsoft.extensions.options.nuspec",
-        "packageIcon.png"
-      ]
-    },
-    "Microsoft.Extensions.Options.ConfigurationExtensions/3.1.0": {
-      "sha512": "tx6gMKE3rDspA1YZT8SlQJmyt1BaBSl6mNjB3g0ZO6m3NnoavCifXkGeBuDk9Ae4XjW8C+dty52p+0u38jPRIQ==",
-      "type": "package",
-      "path": "microsoft.extensions.options.configurationextensions/3.1.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-        "lib/netcoreapp3.1/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
-        "microsoft.extensions.options.configurationextensions.3.1.0.nupkg.sha512",
-        "microsoft.extensions.options.configurationextensions.nuspec",
-        "packageIcon.png"
-      ]
-    },
-    "Microsoft.Extensions.Primitives/3.1.8": {
-      "sha512": "XcIoXQhT0kwnEhOKv/LmpWR6yF6QWmBTy9Fcsz4aHuCOgTJ7Zd23ELtUA4BfwlYoFlSedavS+vURz9tNekd44g==",
-      "type": "package",
-      "path": "microsoft.extensions.primitives/3.1.8",
+      "path": "microsoft.extensions.options/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Options.dll",
+        "lib/net461/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
+        "microsoft.extensions.options.6.0.0.nupkg.sha512",
+        "microsoft.extensions.options.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Options.ConfigurationExtensions/6.0.0": {
+      "sha512": "bXWINbTn0vC0FYc9GaQTISbxhQLAMrvtbuvD9N6JelEaIS/Pr62wUCinrq5bf1WRBGczt1v4wDhxFtVFNcMdUQ==",
+      "type": "package",
+      "path": "microsoft.extensions.options.configurationextensions/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net461/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/net461/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.ConfigurationExtensions.xml",
+        "microsoft.extensions.options.configurationextensions.6.0.0.nupkg.sha512",
+        "microsoft.extensions.options.configurationextensions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/6.0.0": {
+      "sha512": "9+PnzmQFfEFNR9J2aDTfJGGupShHjOuGw4VUv+JB044biSHrnmCIMD+mJHmb2H7YryrfBEXDurxQ47gJZdCKNQ==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/Microsoft.Extensions.Primitives.dll",
+        "lib/net461/Microsoft.Extensions.Primitives.xml",
+        "lib/net6.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net6.0/Microsoft.Extensions.Primitives.xml",
         "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.dll",
         "lib/netcoreapp3.1/Microsoft.Extensions.Primitives.xml",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
         "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
-        "microsoft.extensions.primitives.3.1.8.nupkg.sha512",
-        "microsoft.extensions.primitives.nuspec"
+        "microsoft.extensions.primitives.6.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
@@ -1261,45 +1317,45 @@
         "version.txt"
       ]
     },
-    "Steeltoe.Common/3.1.0": {
-      "sha512": "l50Pj0KmuMrPJf5PtQyznSBxymigvnmMiYj+//dRR++S1E+t9cebsxOjOkUDGhJpgCK5v8/PX6gmZ4RpIaRFmA==",
+    "Steeltoe.Common/3.1.3": {
+      "sha512": "hmBnwzG8SZbN1nXBMHNJQY4dOslC2OUbVPh5Ddvz0Ny+3RuIssUNc6Hu4EJYZx5i4zp5C5yzmf2IR1MItbIKgQ==",
       "type": "package",
-      "path": "steeltoe.common/3.1.0",
+      "path": "steeltoe.common/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Common.dll",
         "lib/netstandard2.0/Steeltoe.Common.xml",
-        "steeltoe.common.3.1.0.nupkg.sha512",
+        "steeltoe.common.3.1.3.nupkg.sha512",
         "steeltoe.common.nuspec"
       ]
     },
-    "Steeltoe.Common.Abstractions/3.1.0": {
-      "sha512": "65UKP8/Lbz+VNCbdRG7bxSBoGIlmDCkcF0qLgBiPdfoYwt3ThtvJkabZJgITmgEN4S1Kn2KslE53IzgPfiaNKg==",
+    "Steeltoe.Common.Abstractions/3.1.3": {
+      "sha512": "6JToDUN2PROME4rnUDn4rinvSNW1sZAUDUCdLW34Abc5zgspSpz1HOQQgp/HNRPKIXjLF3iQZGVoOVy78Gy+fw==",
       "type": "package",
-      "path": "steeltoe.common.abstractions/3.1.0",
+      "path": "steeltoe.common.abstractions/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Common.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Common.Abstractions.xml",
-        "steeltoe.common.abstractions.3.1.0.nupkg.sha512",
+        "steeltoe.common.abstractions.3.1.3.nupkg.sha512",
         "steeltoe.common.abstractions.nuspec"
       ]
     },
-    "Steeltoe.Common.Http/3.1.0": {
-      "sha512": "Y1DmloKgae9x3TbeaCNEQ6dR53YhkAv2A7WqKdGkzYLJfT09Ap+J6AZ1xTNYaEJT9rnhfFwkEVNMuM217D4Msg==",
+    "Steeltoe.Common.Http/3.1.3": {
+      "sha512": "SpavdBKJS7DBOktGxpgxL+B0lChp39OtQUU+R9O03wIr1Mu/orgXmyaLYm5RVSMlZgy6bStbjZnwB5bYFj1oGQ==",
       "type": "package",
-      "path": "steeltoe.common.http/3.1.0",
+      "path": "steeltoe.common.http/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Common.Http.dll",
         "lib/netstandard2.0/Steeltoe.Common.Http.xml",
-        "steeltoe.common.http.3.1.0.nupkg.sha512",
+        "steeltoe.common.http.3.1.3.nupkg.sha512",
         "steeltoe.common.http.nuspec"
       ]
     },
@@ -1317,89 +1373,91 @@
         "steeltoe.common.security.nuspec"
       ]
     },
-    "Steeltoe.Connector.Abstractions/3.1.0": {
-      "sha512": "eXBDusXDKHVQrHxvcljllgP8wqwJsuaDEgB5zMjqckdRVxeVFV46XbKotjL+lCevCaRuLVyq26NWc8hI8c4YlQ==",
+    "Steeltoe.Connector.Abstractions/3.1.3": {
+      "sha512": "IEZsN+uXOcUfhcD15HgwcUtcP/zSYpK7kdqcxF0saSSvxMISWVra5B2xK200aTayGF5tH4ZNbpMz5vShJFxWzw==",
       "type": "package",
-      "path": "steeltoe.connector.abstractions/3.1.0",
+      "path": "steeltoe.connector.abstractions/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Connector.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Connector.Abstractions.xml",
-        "steeltoe.connector.abstractions.3.1.0.nupkg.sha512",
+        "steeltoe.connector.abstractions.3.1.3.nupkg.sha512",
         "steeltoe.connector.abstractions.nuspec"
       ]
     },
-    "Steeltoe.Connector.ConnectorBase/3.1.0": {
-      "sha512": "EnUlVmkVFaTkP3afLitBn5M2wC3RXM6nq2cY07ESE861LbhgauGXwdKvu6VTM0hhip9AWli4Es1dxBotPCLeNQ==",
+    "Steeltoe.Connector.ConnectorBase/3.1.3": {
+      "sha512": "fB1o5e9iRP3wH5R0LnXmOJeYq984xMJ0QYc/0G8jBrywku3fFSdCgZU6ZhJTlG4HKPqDHP8ZHCAOq8/oXmXO1A==",
       "type": "package",
-      "path": "steeltoe.connector.connectorbase/3.1.0",
+      "path": "steeltoe.connector.connectorbase/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Connector.ConnectorBase.dll",
         "lib/netstandard2.0/Steeltoe.Connector.ConnectorBase.xml",
-        "steeltoe.connector.connectorbase.3.1.0.nupkg.sha512",
+        "steeltoe.connector.connectorbase.3.1.3.nupkg.sha512",
         "steeltoe.connector.connectorbase.nuspec"
       ]
     },
-    "Steeltoe.Discovery.Abstractions/3.1.0": {
-      "sha512": "1ejYRnKmX3NyWQCJlVJbPM2ZdFipwQgztBhqiJ/6opDYiR3W5wR/zfn5K0Q+X/HT/uRDZXYBteOgqaeup+nzkA==",
+    "Steeltoe.Discovery.Abstractions/3.1.3": {
+      "sha512": "tHksjDGbY/OT05Z+D1s0Dl/UPUPdtaRWlsipwEco148OrO101I/PyEMf+i0G/vq7CgmXr2/XZy/jxj7WCremrQ==",
       "type": "package",
-      "path": "steeltoe.discovery.abstractions/3.1.0",
+      "path": "steeltoe.discovery.abstractions/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Discovery.Abstractions.xml",
-        "steeltoe.discovery.abstractions.3.1.0.nupkg.sha512",
+        "steeltoe.discovery.abstractions.3.1.3.nupkg.sha512",
         "steeltoe.discovery.abstractions.nuspec"
       ]
     },
-    "Steeltoe.Discovery.ClientBase/3.1.0": {
-      "sha512": "pQh6kgnDpRiv71qhxjA/YIjIZxqNxc0XAc5EjLi5EpjunGPr96Vdqyz57P/berF2sHp6s9kBbch3KDuLAKozTA==",
+    "Steeltoe.Discovery.ClientBase/3.1.3": {
+      "sha512": "BM5st3PHX4N2mSl/0SLvz4g+MP6yPruRssfKp7qzVPzMxbbvH8w0ANtq/XrCe/5ID5fikJ+CZyOF+vTwxXLpPA==",
       "type": "package",
-      "path": "steeltoe.discovery.clientbase/3.1.0",
+      "path": "steeltoe.discovery.clientbase/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Discovery.ClientBase.dll",
         "lib/netstandard2.0/Steeltoe.Discovery.ClientBase.xml",
-        "steeltoe.discovery.clientbase.3.1.0.nupkg.sha512",
+        "steeltoe.discovery.clientbase.3.1.3.nupkg.sha512",
         "steeltoe.discovery.clientbase.nuspec"
       ]
     },
-    "Steeltoe.Discovery.ClientCore/3.1.0": {
-      "sha512": "a6uIhBF6JkLpK7cBropsHbBN8KRXmmouRMaR71hw59+VjMgLo3BpiE/DjL7Njb3EmT1icMtkWkGxTFOm8Hl7aw==",
+    "Steeltoe.Discovery.ClientCore/3.1.3": {
+      "sha512": "ucj79oF2qaJ3Ax7rhYzKL5E4tuYsfZOxIYJXOb0n6V9fatSpv7CnX+5J75aUFI8BblVQHsnRoR5jjTr/eNbAIg==",
       "type": "package",
-      "path": "steeltoe.discovery.clientcore/3.1.0",
+      "path": "steeltoe.discovery.clientcore/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/net5.0/Steeltoe.Discovery.ClientCore.dll",
         "lib/net5.0/Steeltoe.Discovery.ClientCore.xml",
+        "lib/net6.0/Steeltoe.Discovery.ClientCore.dll",
+        "lib/net6.0/Steeltoe.Discovery.ClientCore.xml",
         "lib/netcoreapp3.1/Steeltoe.Discovery.ClientCore.dll",
         "lib/netcoreapp3.1/Steeltoe.Discovery.ClientCore.xml",
-        "steeltoe.discovery.clientcore.3.1.0.nupkg.sha512",
+        "steeltoe.discovery.clientcore.3.1.3.nupkg.sha512",
         "steeltoe.discovery.clientcore.nuspec"
       ]
     },
-    "Steeltoe.Extensions.Configuration.Abstractions/3.1.0": {
-      "sha512": "5FY2T2uGHsvQRO6jRQcqw/wp4bF530gomaXXy3RKAk7ThL4l1QbKjJOuQWs2xfgzcJIFE1bjzVJjt1kSgygnFQ==",
+    "Steeltoe.Extensions.Configuration.Abstractions/3.1.3": {
+      "sha512": "fbnoWhwPix7FJpc7aEi7XINY7WSjP6r53HujS7vEJEhbGmFMu8oh2RJqJ+aR1kbV8M1Y1lQ51EkPo46R3lnKlA==",
       "type": "package",
-      "path": "steeltoe.extensions.configuration.abstractions/3.1.0",
+      "path": "steeltoe.extensions.configuration.abstractions/3.1.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "icon.png",
         "lib/netstandard2.0/Steeltoe.Extensions.Configuration.Abstractions.dll",
         "lib/netstandard2.0/Steeltoe.Extensions.Configuration.Abstractions.xml",
-        "steeltoe.extensions.configuration.abstractions.3.1.0.nupkg.sha512",
+        "steeltoe.extensions.configuration.abstractions.3.1.3.nupkg.sha512",
         "steeltoe.extensions.configuration.abstractions.nuspec"
       ]
     },
@@ -1477,6 +1535,31 @@
         "system.reflection.metadataloadcontext.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+      "type": "package",
+      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
+        "buildTransitive/netcoreapp3.1/_._",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "system.runtime.compilerservices.unsafe.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.Security.AccessControl/4.7.0": {
@@ -1621,9 +1704,9 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net6.0": [
       "Microsoft.Azure.SpringCloud.Client >= 2.0.0-preview.1",
-      "Steeltoe.Discovery.ClientCore >= 3.1.0"
+      "Steeltoe.Discovery.ClientCore >= 3.1.3"
     ]
   },
   "packageFolders": {
@@ -1643,15 +1726,15 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net6.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {}
         }
       },
@@ -1662,8 +1745,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
-        "targetAlias": "netcoreapp3.1",
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Microsoft.Azure.SpringCloud.Client": {
             "target": "Package",
@@ -1671,7 +1754,7 @@
           },
           "Steeltoe.Discovery.ClientCore": {
             "target": "Package",
-            "version": "[3.1.0, )"
+            "version": "[3.1.3, )"
           }
         },
         "imports": [
@@ -1684,24 +1767,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.1.24, 3.1.24]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
